@@ -19,4 +19,3 @@ config :logger, level: :warn
 
 # speeds up tests by using weaker hash
 config :argon2_elixir, t_cost: 1, m_cost: 8
-

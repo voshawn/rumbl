@@ -2,12 +2,16 @@ defmodule Rumbl.MultimediaTest do
   use Rumbl.DataCase
   alias Rumbl.Multimedia
   alias Rumbl.Multimedia.Category
+
   describe "categories" do
     test "list_alphabetical_categories/0" do
       for name <- ~w(Drama Action Comedy), do: Multimedia.create_category(name)
-      alpha_names = for %Category{name: name} <- Multimedia.list_alphabetical_categories() do
-        name
-      end
+
+      alpha_names =
+        for %Category{name: name} <- Multimedia.list_alphabetical_categories() do
+          name
+        end
+
       assert alpha_names == ~w(Action Comedy Drama)
     end
   end
@@ -22,7 +26,8 @@ defmodule Rumbl.MultimediaTest do
       %Video{id: id1} = video_fixture(owner)
       assert [%Video{id: ^id1}] = Multimedia.list_videos()
       %Video{id: id2} = video_fixture(owner)
-      assert [%Video{id: ^id1}, %Video{id: ^id2}] = Multimedia.list_videos() end
+      assert [%Video{id: ^id1}, %Video{id: ^id2}] = Multimedia.list_videos()
+    end
 
     test "get_video!/1 returns the video with given id" do
       owner = user_fixture()
@@ -36,8 +41,8 @@ defmodule Rumbl.MultimediaTest do
       assert video.description == "desc"
       assert video.title == "title"
       assert video.url == "http://local"
-
     end
+
     test "create_video/2 with invalid data returns error changeset" do
       owner = user_fixture()
       assert {:error, %Ecto.Changeset{}} = Multimedia.create_video(owner, @invalid_attrs)

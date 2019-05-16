@@ -62,8 +62,8 @@ defmodule Rumbl.AccountsTest do
     end
 
     test "returns not found error with no matching user for email" do
-      assert {:error, :not_found} = Accounts.authenticate_by_email_and_pass("bademail@localhost", @pass)
+      assert {:error, :not_found} =
+               Accounts.authenticate_by_email_and_pass("bademail@localhost", @pass)
     end
   end
 end
-

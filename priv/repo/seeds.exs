@@ -15,4 +15,3 @@ alias Rumbl.Multimedia
 for category <- ~w(startups coding news science) do
   Multimedia.create_category(category)
 end
-
