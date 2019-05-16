@@ -149,7 +149,7 @@ defmodule Rumbl.Accounts do
     user = get_user_by_email(email)
 
     cond do
-      user && Argon2.check_pass(given_pass, user.credential.password_hash) ->
+      user && Argon2.verify_pass(given_pass, user.credential.password_hash) ->
         {:ok, user}
 
       user ->
