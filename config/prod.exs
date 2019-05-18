@@ -11,7 +11,6 @@ use Mix.Config
 # before starting your production server.
 # shielded-bayou-55104
 config :rumbl, RumblWeb.Endpoint,
-  url: [host: "example.com", port: 80],
   url: [scheme: "https", host: "shielded-bayou-55104", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json"
