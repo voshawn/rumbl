@@ -11,9 +11,8 @@ use Mix.Config
 # before starting your production server.
 # shielded-bayou-55104
 config :rumbl, RumblWeb.Endpoint,
-  url: [scheme: "https", host: "shielded-bayou-55104", port: 443],
+  url: [scheme: "https", host: "shielded-bayou-55104.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
-  check_origin: ["https://shielded-bayou-55104.herokuapp.com"],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
