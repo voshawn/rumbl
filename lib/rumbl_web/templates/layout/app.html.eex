@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Rumbl · Phoenix Framework</title>
+    <title>Rumbl · Rumbl out loud.</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
@@ -16,6 +16,7 @@
               <li>
                 <%= @current_user.username %>
               </li>
+              <li><%= link "My Videos", to: Routes.video_path(@conn, :index) %></li>
               <li>
                 <%= link "Log out", to: Routes.session_path(@conn, :delete, @current_user), method: "delete" %>
               </li>
@@ -39,6 +40,7 @@
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= render @view_module, @view_template, assigns %>
     </main>
+    <script>window.userToken = "<%= assigns[:user_token] %>"</script>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
