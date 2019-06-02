@@ -19,3 +19,5 @@ config :logger, level: :warn
 
 # Speed up test with weaker hash
 config :argon2_elixir, t_cost: 1, m_cost: 8
+
+config :info_sys, :wolfram, app_id: "1234", http_client: InfoSys.Test.HTTPClient
